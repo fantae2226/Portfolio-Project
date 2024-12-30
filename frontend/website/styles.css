@@ -7,10 +7,12 @@ body {
     /* color: white; */
     font-family: Arial, Helvetica, sans-serif;
     /* margin: 15px; */
+    height: 100vh;
 }
 h2{
     font-weight: bold;
     color: #ffffff;
+    text-align: center;
 }
 /* 
     CSS REMINDER: 
@@ -48,6 +50,10 @@ h2{
     padding-top: 10px;
 }
 
+#username, #username-r, #password, #password1 #password2, #email {
+    width: 75%;
+}
+
 #loginbutton, #registerbutton {
     width: 100%;
     background-color: #33b5e5;
@@ -76,6 +82,7 @@ label {
     height: 100%;
     padding: 0.5em;
     /* margin-top: 1em; */
+    /* margin-bottom: 1em; */
     /* padding: 2em; */
 }
 
@@ -89,7 +96,7 @@ label {
     color: #0099cc;
 }
 
-.welcomebubbles { 
+.row row-cols-2-md-1 { 
     display: grid;
 } 
 
@@ -104,4 +111,20 @@ label {
 
 #testclass {
     display: flex;
+}
+#registrationform {
+    justify-content: left;
+}
+
+#registrationbutton {
+    color: white;
+    background-color: #0099cc;
+}
+
+#backbutton {
+    display: block;
+    margin: auto;
+    color: white;
+    background-color: #0099cc;
+    width: 15%;
 }
