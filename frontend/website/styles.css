@@ -9,11 +9,13 @@ body {
     /* margin: 15px; */
     height: 100vh;
 }
+
 h2{
     font-weight: bold;
     color: #ffffff;
     text-align: center;
 }
+
 /* 
     CSS REMINDER: 
         . is for classes while # is for ids 
@@ -58,12 +60,13 @@ h2{
     width: 100%;
     background-color: #33b5e5;
     color: #ffffff;
-   
+    margin-top: 20px;
 }
 
-label {
+.loginLabels, .registerLabels {
     color: #ffffff;
     text-align: left;
+    margin-top: 10px;
 }
 
 
@@ -116,12 +119,16 @@ label {
 #registrationbutton {
     color: white;
     background-color: #0099cc;
+    margin-top: 10px;
 }
 
 #backbutton {
     display: block;
     margin: auto;
+    position: fixed;
+    top: 10px;
+    right: 10px;
     color: white;
     background-color: #0099cc;
-    width: 15%;
+    /* width: 15%; */
 }

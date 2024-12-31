@@ -36,8 +36,8 @@
                         <div class="row row-cols-2-md-1">
                             <div class="col-4">
                                 <div>
-                                    <img src="../../assets/images/BlueStacks_Logo2.png" alt="The Logo for 5Stack" id="logobox">
-                                    
+                                    <img src="..\..\assets\images\BlueStacks_Logo2.png" alt="The Logo for 5Stack" id="logobox">
+                                    <!-- C:\XAMPP\htdocs\Portfolio-Project\assets\images\BlueStacks_Logo2.png -->
                                 </div>
                             </div>
                             <div class="col-8" id="titlebox"> 
@@ -53,19 +53,21 @@
                     <!-- Login Form -->
                     <div class = "loginform">
                         <form action="/action_page.php">
-                            <label>Username:</label><br>
-                            <input type="text" id="username" name="username"><br>
-                            <label>Password:</label><br>
-                            <input type="password" id="password" name="password"><br><br>
-                        
-                            <input type="submit" id = "loginbutton" value="Login!" class="btn btn-lg">
+                            <label for="username" class="loginLabels">Username</label>
+                            <input type="text" id="username" class="form-control" name="username">
+                            
+                            <label for="password" class="loginLabels">Password</label>
+                            <input type="password" id="password" class="form-control" name="password">
+                            <!-- <label id="passwordLoginStatus"></label> -->
+
+                            <input type="submit" id="loginbutton" value="Login!" class="btn btn-lg">
                             
                         </form>
                     </div>
-                    <br>
+                    
 
                     <!-- Register Button -->
-                    <a href="registerationPage.html"><button type="button" id = "registerbutton" class="btn btn-lg">Register</button></a>
+                    <a href="registerationPage.html"><button type="button" id="registerbutton" class="btn btn-lg">Register</button></a>
 
 
 
