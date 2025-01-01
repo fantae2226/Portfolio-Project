@@ -4,11 +4,11 @@
 
 async function Create(paramName, paramContents) {
 
-    var uri = `../backend/controller.php/${paramName}`;
+    var uri = `http://localhost/Portfolio%20Project/backend/${paramName}`;
 
     await fetch(uri, {
         method : 'POST',
-        headers : {'Content-Type' : 'appliction/json'},
+        headers : {'Content-Type' : 'application/json'},
         body : JSON.stringify(paramContents)
     })
     .then(response =>{
@@ -53,7 +53,14 @@ async function Read(paramName, paramSpecifier = null) {
     })
 }
 
-var paramName = "Joe";
+var paramName = "users";
+var paramContents = {
+    "username": "Porcelain_Power",
+    "password": "Porcelainia",
+    "role": "admin"
+};
 
 
-Read(paramName, "Hello");
+Create(paramName, paramContents);
+
+//Read(paramName, "Nigga-In-Paris");

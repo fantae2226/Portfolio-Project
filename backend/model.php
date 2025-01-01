@@ -19,8 +19,8 @@ function Create($table, $fields, $params){
 
     // $paramatersArray = array_merge($table, $fields, $params);
 
-    echo $insertQuery;
-    echo "<br>";
+    // echo $insertQuery;
+    // echo "<br>";
 
 
     $stmt = $dh->prepare($insertQuery);
@@ -28,7 +28,9 @@ function Create($table, $fields, $params){
     $success = $stmt->execute($params);
 
     if($success){
-        echo "Success";
+        // echo "Success";
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     else{
         echo "Not Success";
@@ -60,8 +62,8 @@ function Read($table, $columns, $fields, $params){
         }
     }
 
-    echo $selectedQuery;
-    echo "<br>";
+    // echo $selectedQuery;
+    // echo "<br>";
 
 
     $stmt = $dh->prepare($selectedQuery);
@@ -113,8 +115,8 @@ function Update($table, $columns, $fields, $columnParams, $fieldParams){
         }
     }
 
-    echo $updatedQuery;
-    echo "<br>";
+    // echo $updatedQuery;
+    // echo "<br>";
 
     $params = array_merge($columnParams, $fieldParams);
 
@@ -153,8 +155,8 @@ function Delete($table, $fields, $params){
 
     // $paramatersArray = array_merge($table, $fields, $params);
 
-    echo $deletedQuery;
-    echo "<br>";
+    // echo $deletedQuery;
+    // echo "<br>";
 
 
     $stmt = $dh->prepare($deletedQuery);
