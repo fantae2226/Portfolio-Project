@@ -15,13 +15,7 @@
             crossorigin="anonymous">
         <!-- Bootstrap Icons -->    
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        </style>
+
         <link rel="stylesheet" href="styles.css">
         <!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
         
@@ -31,7 +25,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4" id="leftbox">
+                <div class="col-3" id="leftbox">
                     <!-- Left Menu Bar-->
                     
                     <!-- The Logo and Name -->
@@ -75,8 +69,8 @@
                 <!-- End of Left Menu Bar -->
                 </div>
                 
-                <div class="col-8" id="middlebox">
-                <!-- Right Menu Bar -->
+                <div class="col-5" id="middlebox">
+                <!-- Middle Menu Bar -->
                    
                     
                     <div class="container-fluid">
@@ -85,7 +79,7 @@
                                 <h2>REGISTRATION</h2>
                             </div>
                         </div>
-                        <div class = "registerationform">
+                        <span class = "registerationform">
                             <form action="/action_page.php">
                                 <label for="username-r" class="registerLabels">Username</label>
                                 <input type="text" id="username-r" class="form-control" name="username-r" aria-describedby="usernameRegistrationBlock">
@@ -105,12 +99,16 @@
 
                                 <input type="submit" id="registrationbutton" value="Register!" class="btn btn-md">
                             </form>
-                            <br>
-                            <br>
-                        </div>
+                            <!-- Back Button -->
+                            <button type="button" id="backbutton" class="btn btn-md" onclick="window.location.href = 'file:///C:/XAMPP/htdocs/Portfolio-Project/frontend/website/index.html' ">
+                                Back
+                            </button>
+                            <!-- 
+                                TO DO: This button has an onclick event to link to the login page. 
+                                Currently it links using physical file location. When this gets published to a website change the link to site url   
+                            -->
+                        </span>
 
-                    <!-- Back Button -->
-                    <a href="index.html"><button type="button" id="backbutton" class="btn btn-lg">Back</button></a>
                         
                         
                         
@@ -118,8 +116,19 @@
                         
                     </div>
                     
-                <!-- End of Right Menu Bar -->
+                <!-- End of Middle Menu Bar -->
                 </div>
+
+
+                <div class="col-4" id="rightbox">
+                <!-- Right Menu Bar -->
+    
+    
+                        
+                <!-- End of Right Menu Box -->
+                </div>
+
+
             </div>
         </div>
 

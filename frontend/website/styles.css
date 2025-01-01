@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -35,8 +37,16 @@ h2{
     height: 100vh;
 }
 
+<<<<<<< Updated upstream
 /*#rightbox{
      border: 2px solid black; 
+=======
+#rightbox {
+    /* border: 2px solid black; */
+    padding-top: 2%;
+    background-color: #0099cc;
+    height: 100vh;
+>>>>>>> Stashed changes
 }
 */
 
@@ -101,10 +111,6 @@ h2{
     color: #0099cc;
 }
 
-.row row-cols-2-md-1 { 
-    display: grid;
-} 
-
 /* .grid-container {
     display: grid;
     height: 400px;
@@ -125,12 +131,54 @@ h2{
 }
 
 #backbutton {
-    display: block;
-    margin: auto;
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    float: right;
     color: white;
     background-color: #0099cc;
-    /* width: 15%; */
+    margin-top: -37px;
+    margin-right: 7px;
+}
+
+/* Home Page Section */
+#homebutton, #yourpagebutton, #logoutbutton {
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 0px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#createstackbutton {
+    width: 75%;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    margin-top: 50px;
+    /* margin: auto; */
+    justify-content: center;
+}
+
+.leftbarbuttonscontainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.homebuttoncontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#timelinebutton, #followingbutton {
+    border: 2px solid black;
+    color: white;
+    background-color: #0099cc;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 40%;
 }
