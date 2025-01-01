@@ -37,18 +37,12 @@ h2{
     height: 100vh;
 }
 
-<<<<<<< Updated upstream
-/*#rightbox{
-     border: 2px solid black; 
-=======
 #rightbox {
     /* border: 2px solid black; */
     padding-top: 2%;
     background-color: #0099cc;
     height: 100vh;
->>>>>>> Stashed changes
 }
-*/
 
 
 /* Left Box Section */
