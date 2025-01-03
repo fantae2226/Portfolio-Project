@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- HI NICK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- HIIIIIIIIIIIIIIIIII -->
+<!-- THIS HTML STUFF AMIRIGHT????? -->
+ <!-- UNFORTUNATELY, YOURE RIGHT -->
+<html lang="en">
+
+    <head>
+        <bmeta charset="UTF-8">
+        <title>5Stack - Welcome Page</title> 
+        <!-- Author: Nick Kew, 000810762 -->
+        
+        <!-- Basic Bootstrap Link -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            crossorigin="anonymous">
+        <!-- Bootstrap Icons -->    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" href="styles.css">
+        <!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
+        
+    </head>
+    
+    <body>
+
+        <div class="row">
+            <!-- Left Menu Bar-->
+            <div class="col-3" id="leftbox">
+                <div class="container-fluid">
+
+                    <!-- The Logo and Name -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4">
+                                <div>
+                                    <img src="..\..\assets\images\BlueStacks_Logo2.png" alt="The Logo for 5Stack" id="logobox" height="50px" width="50px">   
+                                </div>
+                            </div>
+                            <div class="col-8" id="titlebox"> 
+                                <h2>5STACK</h2>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="leftbarbuttonscontainer">
+                        <!-- Home Button -->
+                        <button type="button" id="homebutton" class="btn btn-lg" onclick="window.location.href = 'file:///C:/XAMPP/htdocs/Portfolio-Project/frontend/website/index.html' ">
+                            Home
+                        </button>
+                        
+                        <!-- Your Page Button -->
+                        <button type="button" id="yourpagebutton" class="btn btn-lg" onclick="window.location.href = 'file:///C:/XAMPP/htdocs/Portfolio-Project/frontend/website/index.html' ">
+                            Your Page
+                        </button>
+                        
+                        <!-- Logout Button -->
+                        <button type="button" id="logoutbutton" class="btn btn-lg" onclick="window.location.href = 'file:///C:/XAMPP/htdocs/Portfolio-Project/frontend/website/index.html' ">
+                            Logout
+                        </button>
+                        
+                        
+                        <!-- Create Stack Button -->
+                        <button type="button" id="createstackbutton" class="btn btn-lg" onclick="window.location.href = 'file:///C:/XAMPP/htdocs/Portfolio-Project/frontend/website/index.html' ">
+                            Create Stack
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- End of Left Menu Bar -->
+            </div>
+                
+            <div class="col-5" id="middlebox">
+                    <!-- Middle Menu Bar -->
+                    
+                    <!-- PROFILE HEADER IMAGE -->
+                    <div id="profileheader">
+                        <!-- REMOVE IF IT CAUSES ISSUES, THOUGHT IT WOULD BE FUNEE -->
+                        <img src="..\..\assets\images\water.jpg" alt="ugly header" id="headerpic">
+                    </div>
+
+                    <!-- USER INFO -->
+                    <div id="userheader">
+
+
+                        <!-- PROFILE PIC -->
+                        <div class="profilepicture">
+                            <img src="..\..\assets\images\BlueStacks_Logo2.png" alt="The Logo for 5Stack" class="logobox">        
+                        </div>
+                        
+                        <!-- PROFILE NAME -->
+                        <div class="container-fluid" id="profilenamebox"> 
+                            <h4 id="profilename">
+                                @porcelain_power(placeholder)
+                            </h4>
+                        </div>
+                        
+                        
+                        <!-- TIME JOINED -->
+                        <div id="timejoinedbox">
+                            <span>Member since: 
+                                <span id="timejoined">
+                                    2025-01-02
+                                </span> 
+                            </span>
+                        </div>
+                        
+                        <!-- TOTAL STACKS(Posts) -->
+                        <div id="userdetailsbox">
+                            <span id="userfollowerscount">13</span>
+                            <span id="userfollowers">followers</span>
+
+                            <span id="userfollowingcount">41</span>
+                            <span id="userfollowing">following</span>
+                            
+                            <span id="userstackscount">300</span>
+                            <span id="userstacks">stacks</span>
+                        </div>
+                        
+                        <!-- BIO -->
+                        <div id="bio">
+                            <p>I rule over the porcelain kingdom!</p>
+                        </div>
+
+                    </div>
+                                
+
+                        
+
+
+                    <!-- USER STACKS (Posts) -->
+                    <div class="container-fluid" id="stacksbox">
+                        
+                        <h5>STACKS</h5>
+
+                    </div>
+
+
+                
+                
+            <!-- End of Middle Menu Bar -->
+            </div>
+
+
+            <div class="col-4" id="rightbox">
+                <!-- Right Menu Bar -->
+                <div class="container-fluid">
+                    
+                    <h2>SEARCH</h2>
+                    <form action="/action_page.php">
+                        <input type="search" id="search" class="form-control" name="search" placeholder="Search">
+                    </form>
+                    
+                    
+                </div>
+                        
+            <!-- End of Right Menu Box -->
+            </div>
+
+
+            </div>
+
+            <!-- End of Row -->
+        </div>
+
+    
+    </body>
+</html>

@@ -12,7 +12,7 @@ body {
     height: 100vh;
 }
 
-h2{
+h2 {
     font-weight: bold;
     color: #ffffff;
     text-align: center;
@@ -32,7 +32,8 @@ h2{
 
 #middlebox{
     /* border: 2px solid black; */
-    padding-top: 2%;
+    /* padding-top: 2%; */
+    padding: 0;
     background-color: #33b5e5;
     height: 100vh;
 }
@@ -175,4 +176,72 @@ h2{
     padding-top: 10px;
     padding-bottom: 10px;
     width: 40%;
+}
+
+
+/* User Profile Section */
+#userprofile {
+    overflow-wrap: break-word;
+}
+
+.profilepicture {
+    background-color: gray;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 80px;
+    height: auto;
+    margin-top: -40px;
+}
+
+.logobox {
+    /* border: 2px solid black; */
+    /* width: 50px; */
+    /* border-radius: 50%; */
+    /* clip-path: circle(); */
+    height: auto;
+    width: 100%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#profileheader {
+    background-color: gray;
+    width: 100%;
+    height: 150px;
+    /* margin-top: 0.25em;
+    margin-left: 0.25em;
+    margin-right: 0.25em; */
+}
+
+#profilename, #bio {
+    color: white;
+}
+
+#userfollowingcount, #userfollowerscount, #userstackscount, #timejoined {
+    color: white;
+    font-weight: bold;
+}
+
+#userfollowing, #userfollowers, #userstacks, #timejoinedbox {
+    color: #D6E6F7;
+}
+
+#userheader {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#stacksbox {
+    margin-top: 1em;
+    border-bottom: 1px solid #0099cc;
+    text-align: center;
+    color: white;
+}
+
+.headerpic {
+    height: auto;
+    width: 100%;
 }
