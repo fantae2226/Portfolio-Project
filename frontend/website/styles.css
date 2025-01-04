@@ -25,36 +25,58 @@ h2 {
 /* Left Right and Middle Box Section */
 #leftbox{
     /* border: 2px solid black; */
-    padding-top: 2%;
-    background-color: #0099cc;
+    padding-top: 2;
+    background-color: #452e4b;
     height: 100vh;
 }
 
 #middlebox{
-    /* border: 2px solid black; */
-    /* padding-top: 2%; */
+    border-left : 2px solid #d2d3ca;
+    border-right : 2px solid #d2d3ca;
+    padding-top: 2%;
     padding: 0;
-    background-color: #33b5e5;
+    background-color: #452e4b;
     height: 100vh;
 }
 
 #rightbox {
     /* border: 2px solid black; */
     padding-top: 2%;
-    background-color: #0099cc;
+    background-color: #452e4b; 
     height: 100vh;
+    
 }
 
+#search {
+    border-color: #d2d3ca;
+    background-color:#524057;
+    color: white;
+}
+
+/* #search{
+    background-color:#386e38;
+    color:white;
+} */
+
+/* input::placeholder{
+    color: #ffffff;
+} */ 
 
 /* Left Box Section */
-
 /* Logo and Name Section */
+#logonamebox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 #logobox {
-    max-width: 100%;
+    width: 50px;
     height: auto;
 }
 
 #titlebox {
+    margin-left: 10px;
     text-align: left;
     padding-top: 10px;
 }
@@ -65,7 +87,7 @@ h2 {
 
 #loginbutton, #registerbutton {
     width: 100%;
-    background-color: #33b5e5;
+    background-color: #182718;
     color: #ffffff;
     margin-top: 20px;
 }
@@ -97,13 +119,13 @@ h2 {
 }
 
 .firstbubble {
-    background-color: #0099cc;
+    background-color: #2a552a;
     color: white;
 }
 
 .secondbubble {
     background-color: white;
-    color: #0099cc;
+    color: #2a552a;
 }
 
 /* .grid-container {
@@ -121,14 +143,14 @@ h2 {
 
 #registrationbutton {
     color: white;
-    background-color: #0099cc;
+    background-color: #2a552a;
     margin-top: 10px;
 }
 
 #backbutton {
     float: right;
     color: white;
-    background-color: #0099cc;
+    background-color: #2a552a;
     margin-top: -37px;
     margin-right: 7px;
 }
@@ -136,20 +158,25 @@ h2 {
 /* Home Page Section */
 #homebutton, #yourpagebutton, #logoutbutton {
     width: 100%;
-    border: 3px solid black;
-    border-radius: 0px;
-    background-color: #33b5e5;
+    /* border: 3px solid #d2d3ca; */
+    border-radius: 20px;
+    /* background-color: #483d8b; */
     color: #ffffff;
     margin-bottom: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
+#homebutton:hover, #yourpagebutton:hover, #logoutbutton:hover {
+    background-color: #483d8b;
+    /* border-color: ; */
+}
+
 #createstackbutton {
     width: 75%;
-    border: 2px solid black;
+    border: 2px solid #d2d3ca;
     border-radius: 20px;
-    background-color: #33b5e5;
+    background-color: #0066c8;
     color: #ffffff;
     margin-top: 50px;
     /* margin: auto; */
@@ -172,7 +199,7 @@ h2 {
 #timelinebutton, #followingbutton {
     border: 2px solid black;
     color: white;
-    background-color: #0099cc;
+    background-color: #2a552a;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 40%;
@@ -184,36 +211,34 @@ h2 {
     overflow-wrap: break-word;
 }
 
-.profilepicture {
-    background-color: gray;
-    border: 2px solid black;
-    border-radius: 50%;
-    width: 80px;
-    height: auto;
+.profilepicturebox {
     margin-top: -40px;
+    background-color: gray;
+    border: 3px solid black;
+    border-radius: 50%;
+    
+    position: relative;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
 }
 
-.logobox {
-    /* border: 2px solid black; */
-    /* width: 50px; */
-    /* border-radius: 50%; */
-    /* clip-path: circle(); */
-    height: auto;
+.profilepicture {
     width: 100%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
+    height: auto;
+}
+
+#profileheaderbox {
+    background-color: gray;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
 }
 
 #profileheader {
-    background-color: gray;
     width: 100%;
-    height: 150px;
-    /* margin-top: 0.25em;
-    margin-left: 0.25em;
-    margin-right: 0.25em; */
+    height: auto;
 }
 
 #profilename, #bio {
@@ -236,7 +261,7 @@ h2 {
 
 #stacksbox {
     margin-top: 1em;
-    border-bottom: 1px solid #0099cc;
+    border-bottom: 1px solid #d2d3ca;
     text-align: center;
     color: white;
 }
@@ -245,3 +270,18 @@ h2 {
     height: 100%;
     width: 100%;
 }
+
+/* Search */
+.searchedusers, .searchedstacks {
+    border-bottom: 1px solid #483d8b;
+    width: 100%;
+    h3{
+        color: #ffffff;
+        text-align: left;
+    }
+}
+
+.searchpagebar{
+    margin-top: 15px;
+}
+
