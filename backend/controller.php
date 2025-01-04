@@ -13,11 +13,29 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     $components = explode('/', $request);
 
    // Prepare the data as an associative array
-   $response = [
-    "path" => $path,
-    "request" => $request,
-    "components" => $components
-    ];
+   
+   $table = $components[0];
+   $column = "*";
+   
+
+   $fields = $params = null;
+
+   if(count($components) > 1){
+
+       $fields = "username";
+       $params = [$components[1]];
+    }
+    
+    // $response = [
+    //  "path" => $path,
+    //  "request" => $request,
+    //  "components" => $components,
+    //  "table" => $table,
+    //  "column" => $column,
+    //  "fields" => $fields,
+    //  "params" => $params
+    //  ];
+    $response = Read($table, $column, $fields, $params);
 
     // Set the header to return JSON
     header('Content-Type: application/json');

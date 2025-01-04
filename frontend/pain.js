@@ -55,12 +55,14 @@ async function Read(paramName, paramSpecifier = null) {
 
 var paramName = "users";
 var paramContents = {
-    "username": "Porcelain_Power",
-    "password": "Porcelainia",
-    "role": "admin"
+    "username": "MacNCheese",
+    "password": "Craft Dinner",
+    "role": "super duper admin"
 };
 
+var paramSpecifier = "MacNCheese";
 
-Create(paramName, paramContents);
 
-//Read(paramName, "Nigga-In-Paris");
+// Create(paramName, paramContents);
+
+Read(paramName, paramSpecifier);

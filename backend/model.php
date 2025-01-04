@@ -43,27 +43,31 @@ function Create($table, $fields, $params){
 /**
  * Need to test functionality on this
  */
-function Read($table, $columns, $fields, $params){
+function Read($table, $columns, $fields = null, $params = null){
     //select all functionality needs to be figured out later
     global $dh;
     include_once "connect.php";
     // $tempArr = array_fill(0, count($params), '?');
     // $bindedParams = implode(",", $tempArr);
-    $selectedQuery = "SELECT $columns FROM $table WHERE ";
+    $selectedQuery = "SELECT $columns FROM $table";
 
-    $fieldsArr = explode(",", $fields);
+    if($params != null && $fields != null){
 
-    for($i = 0; $i < count($params); $i++){
-        $selectedQuery .= "$fieldsArr[$i] = ?";
+        $selectedQuery .= " WHERE ";
 
-        $check = $i + 1;
-        if($check !=  count($params)){
-            $selectedQuery .= " AND ";
+        $fieldsArr = explode(",", $fields);
+    
+        for($i = 0; $i < count($params); $i++){
+            $selectedQuery .= "$fieldsArr[$i] = ?";
+    
+            $check = $i + 1;
+            if($check !=  count($params)){
+                $selectedQuery .= " AND ";
+            }
         }
     }
 
-    // echo $selectedQuery;
-    // echo "<br>";
+
 
 
     $stmt = $dh->prepare($selectedQuery);
@@ -71,10 +75,14 @@ function Read($table, $columns, $fields, $params){
     $success = $stmt->execute($params);
 
     if($success){
-        echo "Success";
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     else{
-        echo "Not Success";
+        return [
+            "query" => $selectedQuery,
+            "error" => $stmt->errorInfo(),
+            "params" => $params
+        ];
     }
 
 
