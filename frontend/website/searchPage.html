@@ -25,19 +25,16 @@
                     <!-- Left Menu Bar-->
 
                     <!-- The Logo and Name -->
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-4">
-                                <div>
-                                    <img src="..\..\assets\images\BlueStacks_Logo2.png" alt="The Logo for 5Stack" id="logobox">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-8" id="titlebox"> 
-                                <h2>5STACK</h2>
-                            </div>
-                            
+                    <div class="container-fluid" id="logonamebox">
+                        
+                        <div id="logo">
+                            <img src="..\..\assets\images\BlueStacks_Logo2.png" alt="The Logo for 5Stack" id="logobox" height="50px" width="50px">   
                         </div>
+
+                        <div id="titlebox"> 
+                            <h2>5STACK</h2>
+                        </div>
+
                     </div>
 
                     <div class="leftbarbuttonscontainer">
@@ -73,30 +70,35 @@
                    
                     
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col">
-                                <div class = "searchpagebar">         
-                                    <form action="searchPage.html">
-                                        <input type="search" id="searchbar" class="form-control" name="search" placeholder="Search">
-                                    </form>
-                                </div>
-                                <div class = "searchresultsstring">
-                                    <h2>Showing results for <span id = "userssearch"></span></h2>
-                                    
-                                </div>
-                            </div>
+                        <div class = "searchpagebar">         
+                            <form action="searchPage.html">
+                                <input type="search" id="searchbar" class="form-control" name="search" placeholder="Search">
+                            </form>
                         </div>
-                        <div class = "searchedusers">
-                            <h3>Users</h3>
+                        
+                        <div class="searchresultsstring">
+                            <h4>Showing results for 
+                                "<span id="userssearch"></span>"
+                            </h4>
+                            
                         </div>
-                        <div class = "searchedstacks">
-                            <h3>Stacks</h3>
-                        </div>
+                        
+                    </div>
+                        
+                    <div id="searchedusersbox">
+                        <h3>Users</h3>
+
+                        <div id="searchedusers"></div>
+                    </div>
+                    <div id="searchedstacksbox">
+                        <h3>Stacks</h3>
+
+                        <div id="searchedstacks"></div>
+                    </div>
 
                        
         
                         
-                    </div>
                     
                 <!-- End of Middle Menu Bar -->
                 </div>

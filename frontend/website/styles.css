@@ -272,9 +272,11 @@ h2 {
 }
 
 /* Search */
-.searchedusers, .searchedstacks {
-    border-bottom: 1px solid #483d8b;
+#searchedusersbox, #searchedstacksbox {
     width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-bottom: 1px solid #d2d3ca;
     h3{
         color: #ffffff;
         text-align: left;
@@ -285,3 +287,7 @@ h2 {
     margin-top: 15px;
 }
 
+.searchresultsstring {
+    text-align: center;
+    color: #ffffff;
+}
