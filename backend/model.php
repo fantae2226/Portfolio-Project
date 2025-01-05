@@ -109,11 +109,19 @@ function Read($table, $columns, $fields = null, $params = null){
 
 }
 
-
 /**
- * Need to test functionality on this
+ * Dynamically generates an Update query and executes the query into the database
+ * 
+ * @param string $table : The table in which the data will be inserted into
+ * @param string $columns :  The columns from which the read query will extract data from
+ * @param array $columnParams : contains the paramaters for the column values to update by
+ * @param string|null $fields(optional) : The fields in which the values provided to the function will target for update
+ * @param array|null $fieldParams(optional) : The values that will be inserted into the query to specify a record to be updated. Must be listed in the same order as the $fields as well as contain the same amount of items
+ * 
+ * @return array|false returns an associative array with data if succesful, otherwise returns false 
+ * 
  */
-function Update($table, $columns, $fields, $columnParams, $fieldParams){
+function Update($table, $columns, $columnParams, $fields = null, $fieldParams = null){
     global $dh;
     include_once "connect.php";
     // $tempArr = array_fill(0, count($params), '?');
@@ -133,21 +141,29 @@ function Update($table, $columns, $fields, $columnParams, $fieldParams){
         }
     }
 
-    $fieldsArr = explode(",", $fields);
+    $params = $columnParams;
 
-    for($i = 0; $i < count($fieldParams); $i++){
-        $updatedQuery .= "$fieldsArr[$i] = ?";
+    if($fields != null && $fieldParams != null){
 
-        $check = $i + 1;
-        if($check !=  count($fieldParams)){
-            $updatedQuery .= " AND ";
+        $updatedQuery .= " WHERE ";
+
+        $fieldsArr = explode(",", $fields);
+    
+        for($i = 0; $i < count($fieldParams); $i++){
+            $updatedQuery .= "$fieldsArr[$i] = ?";
+    
+            $check = $i + 1;
+            if($check !=  count($fieldParams)){
+                $updatedQuery .= " AND ";
+            }
         }
+
+        $params = array_merge($columnParams, $fieldParams);
     }
 
     // echo $updatedQuery;
     // echo "<br>";
 
-    $params = array_merge($columnParams, $fieldParams);
 
 
     $stmt = $dh->prepare($updatedQuery);
@@ -155,10 +171,10 @@ function Update($table, $columns, $fields, $columnParams, $fieldParams){
     $success = $stmt->execute($params);
 
     if($success){
-        echo "Success";
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     else{
-        echo "Not Success";
+        return false;
     }
 }
 

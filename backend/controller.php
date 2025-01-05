@@ -45,8 +45,9 @@ switch($_SERVER["REQUEST_METHOD"]){
 
         //if array is size 1
         
-        $table = "";
+        $table = null;
         
+        //this doesn't make sense, why would i check this when the components will always be set
         if(count($components) == 1){
             $table = $components[0];
         }
@@ -67,7 +68,34 @@ switch($_SERVER["REQUEST_METHOD"]){
 
         $role = isset($input['role']) ? htmlspecialchars($input['role'], ENT_QUOTES, 'UTF-8') : null;
 
-        $fields = implode(",",array_keys($input));
+        $columns = implode(",",array_keys($input));
+        $columnParams = [$role];
+
+        $components = getURIComponents();
+
+        $table = $components[0];
+
+
+        $specifier = $specifierParams = null;
+
+
+        if(count($components) > 1){
+            //specifier should be the name of the column which you are trying to query by. Ex: Searching in student # col for certain student ids
+
+            $specifier = "username";
+            $specifierParams = [$components[1]];
+
+        }
+
+        $response = Update($table, $columns, $columnParams, $specifier, $specifierParams);
+
+        
+        // Set the header to return JSON
+        header('Content-Type: application/json');
+
+        // Output the response as JSON
+        echo json_encode($response);
+
 
         break;
     case "DELETE":
