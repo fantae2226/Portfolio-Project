@@ -25,19 +25,16 @@
                     <!-- Left Menu Bar-->
 
                     <!-- The Logo and Name -->
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-4">
-                                <div>
-                                    <img src="..\..\assets\images\BlueStacks_Logo2.png" alt="The Logo for 5Stack" id="logobox">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-8" id="titlebox"> 
-                                <h2>5STACK</h2>
-                            </div>
-                            
+                    <div class="container-fluid" id="logonamebox">
+                        
+                        <div id="logo">
+                            <img src="..\..\assets\images\BlueStacks_Logo2.png" alt="The Logo for 5Stack" id="logobox" height="50px" width="50px">   
                         </div>
+
+                        <div id="titlebox"> 
+                            <h2>5STACK</h2>
+                        </div>
+
                     </div>
 
                     <div class="leftbarbuttonscontainer">
@@ -73,30 +70,205 @@
                    
                     
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col">
-                                <div class = "searchpagebar">         
-                                    <form action="searchPage.html">
-                                        <input type="search" id="searchbar" class="form-control" name="search" placeholder="Search">
-                                    </form>
+                        <div class="searchpagebar">         
+                            <form action="searchPage.html">
+                                <input type="search" id="searchbar" class="form-control" name="search" placeholder="Search">
+                            </form>
+                        </div>
+                        
+                        <div class="searchresultsstring">
+                            <h4>Search for 
+                                "<span id="userssearch"></span>"
+                            </h4>
+                            
+                        </div>
+                        
+                    </div>
+                        
+                    <div id="searchedusersbox">
+                        <div class="searchheading">Users</div>
+
+                        <div class="searcheduser">
+                            <div class="searchedprofilepicturebox">
+                                <img src="..\..\assets\images\BlueStacks_Logo2.png" class="searchedprofilepicture">
+                            </div>
+                            <div class="searchedusername">@porcelain_power</div>
+                        </div>
+
+                        <div class="searcheduser">
+                            <div class="searchedprofilepicturebox">
+                                <img src="..\..\assets\images\BlueStacks_Logo2.png" class="searchedprofilepicture">
+                            </div>
+                            <div class="searchedusername">@html_is_okay</div>
+                        </div>
+
+                        <div class="searcheduser">
+                            <div class="searchedprofilepicturebox">
+                                <img src="..\..\assets\images\BlueStacks_Logo2.png" class="searchedprofilepicture">
+                            </div>
+                            <div class="searchedusername">@php_sucks</div>
+                        </div>
+
+                        <div class="searcheduser">
+                            <div class="searchedprofilepicturebox">
+                                <img src="..\..\assets\images\BlueStacks_Logo2.png" class="searchedprofilepicture">
+                            </div>
+                            <div class="searchedusername">@man_i_hate_js</div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div id="searchedstacksbox">
+                        <div class="searchheading">Stacks</div>
+                        
+                        <div class="searchedstack">
+                            <div class="searchedstackuser">
+                                <div class="searchedprofilepicturebox">
+                                    <img src="..\..\assets\images\BlueStacks_Logo2.png" class="searchedprofilepicture">
                                 </div>
-                                <div class = "searchresultsstring">
-                                    <h2>Showing results for <span id = "userssearch"></span></h2>
-                                    
+                                <div class="searchedusername">@porcelain_power</div>
+                            </div>
+                            
+                            <div class="searchedstackcontent">
+                                They've messed with Porcelania for too long!
+                            </div>
+
+                            <div class="searchedstackdate">
+                                Saturday Jan 04 2025 6:20 PM
+                            </div>
+
+                            <div class="searchedstackcount">
+                                <span class="likecountbox">
+                                    <span class="likecount">17</span> likes
+                                </span>
+                            </div>
+
+                            <div class="searchedstackbuttons">
+                                
+                                <div class="commentbutton">
+                                    reply
                                 </div>
+                                
+                                <div class="likebutton">
+                                    like
+                                </div>
+
                             </div>
                         </div>
-                        <div class = "searchedusers">
-                            <h3>Users</h3>
+
+                        <div class="searchedstack">
+                            <div class="searchedstackuser">
+                                <div class="searchedprofilepicturebox">
+                                    <img src="..\..\assets\images\BlueStacks_Logo2.png" class="searchedprofilepicture">
+                                </div>
+                                <div class="searchedusername">@happy_raven</div>
+                            </div>
+                            
+                            <div class="searchedstackcontent">
+                                caw!
+                            </div>
+
+                            <div class="searchedstackdate">
+                                Saturday Jan 04 2025 6:43 PM
+                            </div>
+
+                            <div class="searchedstackcount">
+                                <span class="likecountbox">
+                                    <span class="likecount">10000000000</span> likes
+                                </span>
+                            </div>
+
+                            <div class="searchedstackbuttons">
+                                
+                                <div class="commentbutton">
+                                    reply
+                                </div>
+                                
+                                <div class="likebutton">
+                                    like
+                                </div>
+
+                            </div>
                         </div>
-                        <div class = "searchedstacks">
-                            <h3>Stacks</h3>
+
+
+                        <div class="searchedstack">
+                            <div class="searchedstackuser">
+                                <div class="searchedprofilepicturebox">
+                                    <img src="..\..\assets\images\BlueStacks_Logo2.png" class="searchedprofilepicture">
+                                </div>
+                                <div class="searchedusername">@skull_emoji</div>
+                            </div>
+                            
+                            <div class="searchedstackcontent">
+                                💀
+                            </div>
+
+                            <div class="searchedstackdate">
+                                Saturday Jan 04 2025 6:45 PM
+                            </div>
+
+                            <div class="searchedstackcount">
+                                <span class="likecountbox">
+                                    <span class="likecount">at least 2</span> likes
+                                </span>
+                            </div>
+
+                            <div class="searchedstackbuttons">
+                                
+                                <div class="commentbutton">
+                                    reply
+                                </div>
+                                
+                                <div class="likebutton">
+                                    like
+                                </div>
+
+                            </div>
                         </div>
+
+
+                        <div class="searchedstack">
+                            <div class="searchedstackuser">
+                                <div class="searchedprofilepicturebox">
+                                    <img src="..\..\assets\images\BlueStacks_Logo2.png" class="searchedprofilepicture">
+                                </div>
+                                <div class="searchedusername">@discord_(real)</div>
+                            </div>
+                            
+                            <div class="searchedstackcontent">
+                                I HATE Nick's laptop >:| 
+                            </div>
+
+                            <div class="searchedstackdate">
+                                Saturday Jan 04 2025 6:47 PM
+                            </div>
+
+                            <div class="searchedstackcount">
+                                <span class="likecountbox">
+                                    <span class="likecount">-17</span> likes
+                                </span>
+                            </div>
+
+                            <div class="searchedstackbuttons">
+                                
+                                <div class="commentbutton">
+                                    reply
+                                </div>
+                                
+                                <div class="likebutton">
+                                    like
+                                </div>
+
+                            </div>
+                        </div>
+
+                        
+                    </div>
 
                        
         
                         
-                    </div>
                     
                 <!-- End of Middle Menu Bar -->
                 </div>
