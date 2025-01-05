@@ -53,16 +53,47 @@ async function Read(paramName, paramSpecifier = null) {
     })
 }
 
+
+
+async function Update(paramName, paramContents, paramSpecifier = null) {
+
+    var uri = paramSpecifier 
+    ? `http://localhost/Portfolio%20Project/backend/${paramName}/${paramSpecifier}`
+    : `http://localhost/Portfolio%20Project/backend/${paramName}`;
+
+    await fetch(uri, {
+        method : 'PUT',
+        headers : {'Content-Type' : 'application/json'},
+        body : JSON.stringify(paramContents)
+    })
+    .then(response =>{
+        if (!response.ok){
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+
+}
+
+
 var paramName = "users";
 var paramContents = {
-    "username": "MacNCheese",
-    "password": "Craft Dinner",
-    "role": "super duper admin"
+    "username" : "Ebby",
+    "password" : "tired_Of_PHP",
+    "role": "super pooper"
 };
 
-var paramSpecifier = "MacNCheese";
+var paramSpecifier = "Ebby";
 
 
-// Create(paramName, paramContents);
+Create(paramName, paramContents);
 
-Read(paramName, paramSpecifier);
+// Read(paramName, paramSpecifier);
+
+// Update(paramName,paramContents);
