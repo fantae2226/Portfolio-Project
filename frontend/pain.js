@@ -116,9 +116,9 @@ var paramContents = {
     "password" : "tired_Of_PHP",
     "role": "super pooper"
 };
-var paramContents = {
-    "role": "certified_javascript_hater"
-};
+// var paramContents = {
+//     "role": "certified_javascript_hater"
+// };
 
 var paramSpecifier = "Ebby";
 
