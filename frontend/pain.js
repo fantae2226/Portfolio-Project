@@ -83,16 +83,14 @@ async function Update(paramName, paramContents, paramSpecifier = null) {
 
 
 
-async function Delete(paramName, paramContents, paramSpecifier = null) {
+async function Delete(paramName, paramSpecifier = null) {
 
     var uri = paramSpecifier 
     ? `http://localhost/Portfolio-Project/backend/${paramName}/${paramSpecifier}`
     : `http://localhost/Portfolio-Project/backend/${paramName}`;
 
     await fetch(uri, {
-        method : 'DELETE',
-        headers : {'Content-Type' : 'application/json'},
-        body : JSON.stringify(paramContents)
+        method : 'DELETE'
     })
     .then(response =>{
         if (!response.ok){
@@ -114,17 +112,20 @@ var paramName = "users";
 var paramContents = {
     "username" : "Ebby",
     "password" : "tired_Of_PHP",
-    "email": "superpooper@hotshits.com"
+    "email": "notpooper@hotshits.com"
 };
 // var paramContents = {
 //     "role": "certified_javascript_hater"
 // };
 
-var paramSpecifier = "Ebby";
+var paramSpecifier = paramContents["email"];
 
 
-Create(paramName, paramContents);
+// Create(paramName, paramContents);
 
 // Read(paramName, paramSpecifier);
 
 // Update(paramName, paramContents, paramSpecifier);
+
+
+Delete(paramName, paramSpecifier);

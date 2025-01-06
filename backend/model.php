@@ -212,13 +212,9 @@ function Deletes ($table, $fields, $params) {
 
     // Return true if successful, or error details on failure
     if ($success) {
-        return true;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } else {
-        return [
-            "query" => $deletedQuery,
-            "error" => $stmt->errorInfo(),
-            "params" => $params
-        ];
+        return false;
     }
 }
 
