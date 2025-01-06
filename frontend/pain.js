@@ -4,7 +4,7 @@
 
 async function Create(paramName, paramContents) {
 
-    var uri = `http://localhost/Portfolio%20Project/backend/${paramName}`;
+    var uri = `http://localhost/Portfolio-Project/backend/${paramName}`;
 
     await fetch(uri, {
         method : 'POST',
@@ -30,8 +30,8 @@ async function Create(paramName, paramContents) {
 
 async function Read(paramName, paramSpecifier = null) {
     var uri = paramSpecifier 
-    ? `http://localhost/Portfolio%20Project/backend/${paramName}/${paramSpecifier}`
-    : `http://localhost/Portfolio%20Project/backend/${paramName}`;
+    ? `http://localhost/Portfolio-Project/backend/${paramName}/${paramSpecifier}`
+    : `http://localhost/Portfolio-Project/backend/${paramName}`;
 
     console.log(uri);
 
@@ -58,8 +58,8 @@ async function Read(paramName, paramSpecifier = null) {
 async function Update(paramName, paramContents, paramSpecifier = null) {
 
     var uri = paramSpecifier 
-    ? `http://localhost/Portfolio%20Project/backend/${paramName}/${paramSpecifier}`
-    : `http://localhost/Portfolio%20Project/backend/${paramName}`;
+    ? `http://localhost/Portfolio-Project/backend/${paramName}/${paramSpecifier}`
+    : `http://localhost/Portfolio-Project/backend/${paramName}`;
 
     await fetch(uri, {
         method : 'PUT',
@@ -86,8 +86,8 @@ async function Update(paramName, paramContents, paramSpecifier = null) {
 async function Delete(paramName, paramContents, paramSpecifier = null) {
 
     var uri = paramSpecifier 
-    ? `http://localhost/Portfolio%20Project/backend/${paramName}/${paramSpecifier}`
-    : `http://localhost/Portfolio%20Project/backend/${paramName}`;
+    ? `http://localhost/Portfolio-Project/backend/${paramName}/${paramSpecifier}`
+    : `http://localhost/Portfolio-Project/backend/${paramName}`;
 
     await fetch(uri, {
         method : 'DELETE',
@@ -114,7 +114,7 @@ var paramName = "users";
 var paramContents = {
     "username" : "Ebby",
     "password" : "tired_Of_PHP",
-    "role": "super pooper"
+    "email": "superpooper@hotshits.com"
 };
 // var paramContents = {
 //     "role": "certified_javascript_hater"

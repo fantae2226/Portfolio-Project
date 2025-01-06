@@ -34,11 +34,11 @@ switch($_SERVER["REQUEST_METHOD"]){
 
         $username = isset($input['username']) ? htmlspecialchars($input['username'], ENT_QUOTES, 'UTF-8') : null;
         $password = isset($input['password']) ? htmlspecialchars($input['password'], ENT_QUOTES, 'UTF-8') : null;
-        $role = isset($input['role']) ? htmlspecialchars($input['role'], ENT_QUOTES, 'UTF-8') : null;
+        $email = isset($input['email']) ? htmlspecialchars($input['email'], ENT_QUOTES, 'UTF-8') : null;
 
         $fields = implode(",",array_keys($input));
         // $fields = "`username`, `password`, `role`";
-        $params = [$username, $password, $role];
+        $params = [$username, $password, $email];
 
         $components = getURIComponents();
 
@@ -65,10 +65,10 @@ switch($_SERVER["REQUEST_METHOD"]){
         $inputJSON = file_get_contents('php://input');
         $input = json_decode($inputJSON, true);
 
-        $role = isset($input['role']) ? htmlspecialchars($input['role'], ENT_QUOTES, 'UTF-8') : null;
+        $username = isset($input['username']) ? htmlspecialchars($input['username'], ENT_QUOTES, 'UTF-8') : null;
 
         $columns = implode(",",array_keys($input));
-        $columnParams = [$role];
+        $columnParams = [$username];
 
         $components = getURIComponents();
 
@@ -81,7 +81,7 @@ switch($_SERVER["REQUEST_METHOD"]){
         if (count($components) > 1) {
             //specifier should be the name of the column which you are trying to query by. Ex: Searching in student # col for certain student ids
 
-            $specifier = "username";
+            $specifier = "email";
             $specifierParams = [$components[1]];
 
         }
@@ -138,7 +138,7 @@ switch($_SERVER["REQUEST_METHOD"]){
 
 
 function getURIComponents(){
-    $prefix = "/Portfolio Project/backend/";
+    $prefix = "/Portfolio-Project/backend/";
 
     $path = urldecode($_SERVER['REQUEST_URI']);
     $request = substr($path, strlen(($prefix)));
