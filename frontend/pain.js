@@ -111,11 +111,11 @@ async function Delete(paramName, paramContents, paramSpecifier = null) {
 
 
 var paramName = "users";
-// var paramContents = {
-//     "username" : "Ebby",
-//     "password" : "tired_Of_PHP",
-//     "role": "super pooper"
-// };
+var paramContents = {
+    "username" : "Ebby",
+    "password" : "tired_Of_PHP",
+    "role": "super pooper"
+};
 var paramContents = {
     "role": "certified_javascript_hater"
 };
@@ -123,8 +123,8 @@ var paramContents = {
 var paramSpecifier = "Ebby";
 
 
-// Create(paramName, paramContents);
+Create(paramName, paramContents);
 
-Read(paramName, paramSpecifier);
+// Read(paramName, paramSpecifier);
 
 // Update(paramName, paramContents, paramSpecifier);

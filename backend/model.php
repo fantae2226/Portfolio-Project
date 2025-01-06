@@ -3,7 +3,7 @@
  * 
  * Summary: This model controls the flow of CRUD functionality, connecting the database to the controller using standard MVC architecture.
  * 
- * @author: Ebenezer Fanta
+ * @author: Ebenezer Fanta the goat. baaa
  * @version: 1.0.0
  * 
  * 
@@ -71,17 +71,17 @@ function Read($table, $columns, $fields = null, $params = null){
     // $bindedParams = implode(",", $tempArr);
     $selectedQuery = "SELECT $columns FROM $table";
 
-    if($params != null && $fields != null){
+    if ($params != null && $fields != null) {
 
         $selectedQuery .= " WHERE ";
 
         $fieldsArr = explode(",", $fields);
     
-        for($i = 0; $i < count($params); $i++){
+        for ($i = 0; $i < count($params); $i++) {
             $selectedQuery .= "$fieldsArr[$i] = ?";
     
             $check = $i + 1;
-            if($check !=  count($params)){
+            if ($check !=  count($params)) {
                 $selectedQuery .= " AND ";
             }
         }
@@ -121,7 +121,7 @@ function Read($table, $columns, $fields = null, $params = null){
  * @return array|false returns an associative array with data if succesful, otherwise returns false 
  * 
  */
-function Update($table, $columns, $columnParams, $fields = null, $fieldParams = null){
+function Update($table, $columns, $columnParams, $fields = null, $fieldParams = null) {
     global $dh;
     include_once "connect.php";
     // $tempArr = array_fill(0, count($params), '?');
@@ -136,7 +136,7 @@ function Update($table, $columns, $columnParams, $fields = null, $fieldParams = 
         $updatedQuery .= "$columnArr[$i] = ?";
 
         $check = $i + 1;
-        if($check !=  count($columnParams)){
+        if ($check !=  count($columnParams)) {
             $updatedQuery .= ",";
         }
     }
@@ -153,7 +153,7 @@ function Update($table, $columns, $columnParams, $fields = null, $fieldParams = 
             $updatedQuery .= "$fieldsArr[$i] = ?";
     
             $check = $i + 1;
-            if($check !=  count($fieldParams)){
+            if ($check !=  count($fieldParams)) {
                 $updatedQuery .= " AND ";
             }
         }
@@ -170,15 +170,15 @@ function Update($table, $columns, $columnParams, $fields = null, $fieldParams = 
 
     $success = $stmt->execute($params);
 
-    if($success){
+    if ($success) {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    else{
+    else {
         return false;
     }
 }
 
-function Delete($table, $fields, $params){
+function Deletes ($table, $fields, $params) {
     global $dh;
     include_once "connect.php";
     $tempArr = array_fill(0, count($params), '?');
@@ -204,17 +204,31 @@ function Delete($table, $fields, $params){
     // echo "<br>";
 
 
+
     $stmt = $dh->prepare($deletedQuery);
 
     $success = $stmt->execute($params);
 
-    if($success){
-        echo "Success";
-    }
-    else{
-        echo "Not Success";
+
+    // Return true if successful, or error details on failure
+    if ($success) {
+        return true;
+    } else {
+        return [
+            "query" => $deletedQuery,
+            "error" => $stmt->errorInfo(),
+            "params" => $params
+        ];
     }
 }
+
+//     if($success){
+//         echo "Success";
+//     }
+//     else{
+//         echo "Not Success";
+//     }
+// }
 
 
 //
