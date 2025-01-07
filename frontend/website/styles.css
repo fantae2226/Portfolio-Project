@@ -84,15 +84,23 @@ h2 {
     padding-top: 10px;
 }
 
-#username, #username-r, #password, #password1 #password2, #email {
+/* #username, #username-r, #password, #password1 #password2, #email {
+    width: 75%;
+} */
+
+#username, #password {
     width: 75%;
 }
 
 #loginbutton, #registerbutton {
     width: 100%;
-    background-color: #182718;
     color: #ffffff;
     margin-top: 20px;
+    /* border: 3px solid #d2d3ca; */
+}
+
+#loginbutton:hover, #registerbutton:hover {
+    background-color: #483d8b;
 }
 
 .loginLabels, .registerLabels {
@@ -146,20 +154,24 @@ h2 {
 
 #registrationbutton {
     color: white;
-    background-color: #2a552a;
+    background-color: #543d5a;
     margin-top: 10px;
 }
 
 #backbutton {
     float: right;
     color: white;
-    background-color: #2a552a;
+    background-color: #543d5a;
     margin-top: -37px;
     margin-right: 7px;
 }
 
+#registrationbutton:hover, #backbutton:hover {
+    background-color: #483d8b;
+}
+
 /* Home Page Section */
-#homebutton, #yourpagebutton, #logoutbutton {
+#homebutton, #yourpagebutton, #logoutbutton, #loginbutton {
     width: 100%;
     /* border: 3px solid #d2d3ca; */
     border-radius: 20px;

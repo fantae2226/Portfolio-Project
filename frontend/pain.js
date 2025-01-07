@@ -2,7 +2,7 @@
 
 
 
-async function Create(paramName, paramContents) {
+export async function Create(paramName, paramContents) {
 
     var uri = `http://localhost/Portfolio-Project/backend/${paramName}`;
 
@@ -28,7 +28,7 @@ async function Create(paramName, paramContents) {
 
 
 
-async function Read(paramName, paramSpecifier = null) {
+export async function Read(paramName, paramSpecifier = null) {
     var uri = paramSpecifier 
     ? `http://localhost/Portfolio-Project/backend/${paramName}/${paramSpecifier}`
     : `http://localhost/Portfolio-Project/backend/${paramName}`;
@@ -55,7 +55,7 @@ async function Read(paramName, paramSpecifier = null) {
 
 
 
-async function Update(paramName, paramContents, paramSpecifier = null) {
+export async function Update(paramName, paramContents, paramSpecifier = null) {
 
     var uri = paramSpecifier 
     ? `http://localhost/Portfolio-Project/backend/${paramName}/${paramSpecifier}`
@@ -83,7 +83,7 @@ async function Update(paramName, paramContents, paramSpecifier = null) {
 
 
 
-async function Delete(paramName, paramSpecifier = null) {
+export async function Delete(paramName, paramSpecifier = null) {
 
     var uri = paramSpecifier 
     ? `http://localhost/Portfolio-Project/backend/${paramName}/${paramSpecifier}`
@@ -108,17 +108,17 @@ async function Delete(paramName, paramSpecifier = null) {
 }
 
 
-var paramName = "users";
-var paramContents = {
-    "username" : "Ebby",
-    "password" : "tired_Of_PHP",
-    "email": "notpooper@hotshits.com"
-};
+// var paramName = "users";
+// var paramContents = {
+//     "username" : "Ebby",
+//     "password" : "tired_Of_PHP",
+//     "email": "notpooper@hotshits.com"
+// };
 // var paramContents = {
 //     "role": "certified_javascript_hater"
 // };
 
-var paramSpecifier = paramContents["email"];
+// var paramSpecifier = paramContents["email"];
 
 
 // Create(paramName, paramContents);
@@ -128,4 +128,4 @@ var paramSpecifier = paramContents["email"];
 // Update(paramName, paramContents, paramSpecifier);
 
 
-Delete(paramName, paramSpecifier);
+// Delete(paramName, paramSpecifier);

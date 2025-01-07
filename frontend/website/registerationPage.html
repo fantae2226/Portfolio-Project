@@ -7,8 +7,8 @@
 <html lang="en">
 
     <head>
-        <bmeta charset="UTF-8">
-        <title>5Stack - Welcome Page</title> 
+        <meta charset="UTF-8">
+        <title>5Stack - Registration Page</title> 
         <!-- Author: Nick Kew, 000810762 -->
         
         <!-- Basic Bootstrap Link -->
@@ -18,8 +18,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
         <link rel="stylesheet" href="styles.css">
-        <!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
-        
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <script type="module" src="..\functions.js" defer></script>
     </head>
     
     <body>
@@ -78,24 +78,24 @@
                             </div>
                         </div>
                         <span class = "registerationform">
-                            <form action="/action_page.php">
-                                <label for="username-r" class="registerLabels">Username</label>
-                                <input type="text" id="username-r" class="form-control" name="username-r" aria-describedby="usernameRegistrationBlock">
+                            <form action="index.html" method="POST">
+                                <label for="registeredusername" class="registerLabels">Username</label>
+                                <input type="text" id="registeredusername" class="form-control" name="registeredusername" aria-describedby="usernameRegistrationBlock">
                                 <div class="form-text">
                                     Your username must not contain spaces and must be between 1 to 16 characters. 
                                 </div>
                                 
-                                <label for="email-r" class="registerLabels">Email</label><br>
-                                <input type="email" id="email-r" class="form-control" name="email-r" aria-describedby="emailRegistrationBlock">
+                                <label for="registeredemail" class="registerLabels">Email</label><br>
+                                <input type="email" id="registeredemail" class="form-control" name="registeredemail" aria-describedby="emailRegistrationBlock">
                                 
-                                <label for="password1" class="registerLabels">Password</label><br>
-                                <input type="password" id="password1" class="form-control" name="password1" aria-describedby="firstPasswordRegistrationBlock">
+                                <label for="registeredpassword1" class="registerLabels">Password</label><br>
+                                <input type="password" id="registeredpassword1" class="form-control" name="registeredpassword1" aria-describedby="firstPasswordRegistrationBlock">
                                 <div class="form-text">
                                     Your password must be at least 8 characters and contain at least 1 number and special character. 
                                 </div>
 
-                                <label for="password2" class="registerLabels"> Re-enter password:</label><br>
-                                <input type="password" id="password2" class="form-control" name="password2" aria-describedby="secondPassword2RegistrationBlock">
+                                <label for="registeredpassword2" class="registerLabels"> Re-enter password:</label><br>
+                                <input type="password" id="registeredpassword2" class="form-control" name="registeredpassword2" aria-describedby="secondPassword2RegistrationBlock">
                                 <label></label>
 
                                 <input type="submit" id="registrationbutton" value="Register!" class="btn btn-md">
