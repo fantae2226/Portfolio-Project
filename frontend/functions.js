@@ -1,4 +1,4 @@
-import {Create, Read, Update, Delete} from './pain.js';
+import * as database from './pain.js';
 
 // after DOM elements load, run the run function which acts as a startup  
 window.addEventListener("load", run);
@@ -52,7 +52,7 @@ function registerUser() {
         "email": registeredEmail
     };
     
-    Create(paramName, registeredParamContents);
+    database.Create(paramName, registeredParamContents);
     
     console.log("create happened idk if it worked");
     

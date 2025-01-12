@@ -218,17 +218,20 @@ function Deletes ($table, $fields, $params) {
     }
 }
 
-//     if($success){
-//         echo "Success";
-//     }
-//     else{
-//         echo "Not Success";
-//     }
-// }
+//need to add security measures fools
 
 
-//
-
+/**
+ * To be implemented:
+ * 
+ * Register
+ * 
+ * Unregister
+ * 
+ * Login
+ * 
+ * Logout
+ */
 
 
 
