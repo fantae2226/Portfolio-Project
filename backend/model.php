@@ -131,7 +131,7 @@ function Read($table, $columns, $fields = null, $params = null){
  * @param string|null $fields(optional) : The fields in which the values provided to the function will target for update
  * @param array|null $fieldParams(optional) : The values that will be inserted into the query to specify a record to be updated. Must be listed in the same order as the $fields as well as contain the same amount of items
  * 
- * @return array|false returns an associative array with data if succesful, otherwise returns false 
+ * @return array returns an associative array with data if succesful, otherwise returns error array 
  * 
  */
 function Update($table, $columns, $columnParams, $fields = null, $fieldParams = null) {
@@ -199,6 +199,17 @@ function Update($table, $columns, $columnParams, $fields = null, $fieldParams = 
 
     return $response;}
 
+
+    /**
+ * Dynamically generates an delete query and executes the query into the database
+ * 
+ * @param string $table : The table in which the data will be inserted into
+ * @param string $fields : The fields in which the values provided to the function will target for deletion
+ * @param array $params : The values that will be inserted into the query to specify a record to be updated. Must be listed in the same order as the $fields as well as contain the same amount of items
+ * 
+ * @return array returns an associative array with data if succesful, otherwise returns error array 
+ * 
+ */
 function Deletes ($table, $fields, $params) {
     global $dh;
     $tempArr = array_fill(0, count($params), '?');
