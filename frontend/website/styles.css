@@ -226,6 +226,11 @@ h2 {
     overflow-wrap: break-word;
 }
 
+.picturebuttonsbox {
+    display: flex;
+    border: 1px solid red;
+}
+
 .profilepicturebox {
     margin-top: -40px;
     background-color: gray;
@@ -241,6 +246,23 @@ h2 {
 .profilepicture {
     width: 100%;
     height: auto;
+}
+
+#editProfileButtonBox {
+    float: right;
+    border: 1px solid black;
+    margin-left: 50px;
+}
+
+#editProfileButton {
+    background-color: #67506d;
+    border-color: #67506d;
+    border-radius: 25px;
+}
+
+#editProfileButton:hover {
+    background-color: #7f6885;
+    border-color: #7f6885;
 }
 
 #profileheaderbox {
