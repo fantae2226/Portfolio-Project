@@ -4,7 +4,8 @@
  * Summary: This model controls the flow of CRUD functionality, connecting the database to the controller using standard MVC architecture.
  * 
  * @author: Ebenezer Fanta the goat. baaa
- * @version: 1.0.0
+ * @author: Dragana Acamovic <dragana_2528@hotmail.com>
+ * @version: 1.0.69
  * 
  * 
  * 
@@ -16,6 +17,8 @@
 // then methods will be seperated into CRUD
 
 //methods will then call on CRUD to implement specific functionality
+include "connect.php";
+session_start();
 
 
 /**
@@ -30,7 +33,6 @@
  */
 function Create($table, $fields, $params){
     global $dh;
-    include_once "connect.php";
     $tempArr = array_fill(0, count($params), '?');
     $bindedParams = implode(",", $tempArr);
     $insertQuery = "INSERT into $table ($fields) VALUES ($bindedParams)";
@@ -40,13 +42,7 @@ function Create($table, $fields, $params){
 
     $success = $stmt->execute($params);
 
-    if($success){
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    else{
-        return false;
-    }
+    return $success ? $stmt->fetchAll(PDO::FETCH_ASSOC) : $stmt->errorInfo();
 
 }
 
@@ -66,7 +62,6 @@ function Create($table, $fields, $params){
 function Read($table, $columns, $fields = null, $params = null){
     //select all functionality needs to be figured out later
     global $dh;
-    include_once "connect.php";
     // $tempArr = array_fill(0, count($params), '?');
     // $bindedParams = implode(",", $tempArr);
     $selectedQuery = "SELECT $columns FROM $table";
@@ -94,18 +89,7 @@ function Read($table, $columns, $fields = null, $params = null){
 
     $success = $stmt->execute($params);
 
-    if($success){
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    else{
-        
-        return [
-            "query" => $selectedQuery,
-            "error" => $stmt->errorInfo(),
-            "params" => $params
-        ];
-    }
-
+    return $success ? $stmt->fetchAll(PDO::FETCH_ASSOC) : $stmt->errorInfo();
 
 }
 
@@ -123,7 +107,6 @@ function Read($table, $columns, $fields = null, $params = null){
  */
 function Update($table, $columns, $columnParams, $fields = null, $fieldParams = null) {
     global $dh;
-    include_once "connect.php";
     // $tempArr = array_fill(0, count($params), '?');
     // $bindedParams = implode(",", $tempArr);
     $updatedQuery = "UPDATE $table SET ";
@@ -170,17 +153,11 @@ function Update($table, $columns, $columnParams, $fields = null, $fieldParams = 
 
     $success = $stmt->execute($params);
 
-    if ($success) {
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    else {
-        return false;
-    }
+    return $success ? $stmt->fetchAll(PDO::FETCH_ASSOC) : $stmt->errorInfo();
 }
 
 function Deletes ($table, $fields, $params) {
     global $dh;
-    include_once "connect.php";
     $tempArr = array_fill(0, count($params), '?');
     // $bindedParams = implode(",", $tempArr);
     $deletedQuery = "DELETE FROM $table WHERE ";
@@ -196,14 +173,10 @@ function Deletes ($table, $fields, $params) {
         }
     }
 
-
-
     // $paramatersArray = array_merge($table, $fields, $params);
 
     // echo $deletedQuery;
     // echo "<br>";
-
-
 
     $stmt = $dh->prepare($deletedQuery);
 
@@ -211,28 +184,112 @@ function Deletes ($table, $fields, $params) {
 
 
     // Return true if successful, or error details on failure
-    if ($success) {
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } else {
-        return false;
-    }
+    return $success ? $stmt->fetchAll(PDO::FETCH_ASSOC) : $stmt->errorInfo();
 }
-
-//need to add security measures fools
 
 
 /**
- * To be implemented:
+ * Registers a new user by inserting their data into the database.
  * 
- * Register
+ * @param string $username : The username.
+ * @param string $email : The user's email address.
+ * @param string $password : The user's password (will be hashed before storing).
  * 
- * Unregister
+ * @return array : returns success or error message
+ */
+function Register($username, $email, $password){
+    global $dh;
+
+    $existingUser = Read('users', '*', 'username, email', [$username, $email]);
+    
+    if (is_array($existingUser) && count($existingUser) > 0) {
+        return ["error" => "Username or email already exists"];
+    }
+
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+    // Insert new user using Create function
+    $success = Create('users', 'username,email,password', [$username, $email, $hashedPassword]);
+
+    return $success ? ["success" => "User registered successfully"] : ["error" => "Registration failed"];
+}
+
+/**
  * 
- * Login
- * 
- * Logout
+ * Unregisters a user by deleting their data from the database.
+ *
+ * @param string $username : The username.
+ * @param string $email : The user's email address.
+ * @return array : returns success or error message
  */
 
+function Unregister($username, $email){
+    
+    if(!filter_var($email, FILTER_SANITIZE_EMAIL)){
+        return ["error" => "Invalid email format"]; 
+    }
+
+    $existingUser = Read('users', 'user_id', 'username,email', [$username, $email]);
+    
+    //check if the user exists
+    if (is_array($existingUser) && count($existingUser) > 0) {
+        
+        //delete the user from the db
+        $deleted = Deletes('users', 'username, email', [$username, $email]); 
+
+        if($deleted){
+            return ["success" => "User has been unregistered successfully"];
+        }else{
+            return ["error" => "Error occured. Failed to unregister!"];
+
+        }
+
+    }else{
+        return ["error" => "User not found!"];
+    }
+}
+
+
+/**
+ * Logs the user in
+ * 
+ * @param string $username : The username.
+ * @param string $password : The user's password (will be hashed before storing).
+ * 
+ * @return array : returns success or error message
+ */
+function login($username, $password){
+    global $dh;
+
+    $user = Read('users', 'user_id, password', 'username', [$username]);
+
+    if(is_array($user) && count($user) > 0){
+        $user = $user[0];
+        
+        if(password_verify($password, $user['password'])){
+			$_SESSION["user_id"] = $user["user_id"];
+			$_SESSION["valid"] = true;
+            return ["success" => "loging successfull"];
+        }else{
+            return ["error" => "Log-in Unsuccessfull, invalid username or password"];
+        }
+
+    } else{
+        return ["error" => "wrong username or password"]; 
+    }
+}
+
+
+/**
+ * Logs the user in
+ * 
+ * @return array : returns success or error message
+ */
+ function logout (){
+    session_unset();
+    return ["successs" => "logout successfull"]; 
+ }
 
 
 ?>
