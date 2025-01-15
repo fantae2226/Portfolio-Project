@@ -28,7 +28,7 @@ session_start();
  * @param string $fields : The fields in which the values provided to the function will be inserted into
  * @param array $params : The values that will be inserted into the query. Must be listed in the same order as the $fields as well as contain the same amount of items
  * 
- * @return array|false returns an associative array with data if succesful, otherwise returns false 
+ * @return array returns an associative array with data if succesful, otherwise returns error array 
  * 
  */
 function Create($table, $fields, $params){
@@ -42,8 +42,22 @@ function Create($table, $fields, $params){
 
     $success = $stmt->execute($params);
 
-    return $success ? $stmt->fetchAll(PDO::FETCH_ASSOC) : $stmt->errorInfo();
+    $response = [];
 
+    if($success){
+        $response = [
+            "result" => $stmt->fetchAll(PDO::FETCH_ASSOC),
+            "status" => true
+        ];
+    }
+    else{
+        $response = [
+            "result" =>$stmt->errorInfo(),
+            "status" => false
+        ];
+    }
+
+    return $response;
 }
 
 
@@ -56,7 +70,7 @@ function Create($table, $fields, $params){
  * @param string|null $fields(optional) : The fields in which the values provided to the function will be read from
  * @param array|null $params(optional) : The values that will be inserted into the query. Must be listed in the same order as the $fields as well as contain the same amount of items
  * 
- * @return array|false returns an associative array with data if succesful, otherwise returns false 
+ * @return array returns an associative array with data if succesful, otherwise returns error array 
  * 
  */
 function Read($table, $columns, $fields = null, $params = null){
@@ -89,7 +103,22 @@ function Read($table, $columns, $fields = null, $params = null){
 
     $success = $stmt->execute($params);
 
-    return $success ? $stmt->fetchAll(PDO::FETCH_ASSOC) : $stmt->errorInfo();
+    $response = [];
+
+    if($success){
+        $response = [
+            "result" => $stmt->fetchAll(PDO::FETCH_ASSOC),
+            "status" => true
+        ];
+    }
+    else{
+        $response = [
+            "result" =>$stmt->errorInfo(),
+            "status" => false
+        ];
+    }
+
+    return $response;
 
 }
 
@@ -102,7 +131,7 @@ function Read($table, $columns, $fields = null, $params = null){
  * @param string|null $fields(optional) : The fields in which the values provided to the function will target for update
  * @param array|null $fieldParams(optional) : The values that will be inserted into the query to specify a record to be updated. Must be listed in the same order as the $fields as well as contain the same amount of items
  * 
- * @return array|false returns an associative array with data if succesful, otherwise returns false 
+ * @return array returns an associative array with data if succesful, otherwise returns error array 
  * 
  */
 function Update($table, $columns, $columnParams, $fields = null, $fieldParams = null) {
@@ -153,9 +182,34 @@ function Update($table, $columns, $columnParams, $fields = null, $fieldParams = 
 
     $success = $stmt->execute($params);
 
-    return $success ? $stmt->fetchAll(PDO::FETCH_ASSOC) : $stmt->errorInfo();
-}
+    $response = [];
 
+    if($success){
+        $response = [
+            "result" => $stmt->fetchAll(PDO::FETCH_ASSOC),
+            "status" => true
+        ];
+    }
+    else{
+        $response = [
+            "result" =>$stmt->errorInfo(),
+            "status" => false
+        ];
+    }
+
+    return $response;}
+
+
+    /**
+ * Dynamically generates an delete query and executes the query into the database
+ * 
+ * @param string $table : The table in which the data will be inserted into
+ * @param string $fields : The fields in which the values provided to the function will target for deletion
+ * @param array $params : The values that will be inserted into the query to specify a record to be updated. Must be listed in the same order as the $fields as well as contain the same amount of items
+ * 
+ * @return array returns an associative array with data if succesful, otherwise returns error array 
+ * 
+ */
 function Deletes ($table, $fields, $params) {
     global $dh;
     $tempArr = array_fill(0, count($params), '?');
@@ -182,10 +236,22 @@ function Deletes ($table, $fields, $params) {
 
     $success = $stmt->execute($params);
 
+    $response = [];
 
-    // Return true if successful, or error details on failure
-    return $success ? $stmt->fetchAll(PDO::FETCH_ASSOC) : $stmt->errorInfo();
-}
+    if($success){
+        $response = [
+            "result" => $stmt->fetchAll(PDO::FETCH_ASSOC),
+            "status" => true
+        ];
+    }
+    else{
+        $response = [
+            "result" =>$stmt->errorInfo(),
+            "status" => false
+        ];
+    }
+
+    return $response;}
 
 
 /**

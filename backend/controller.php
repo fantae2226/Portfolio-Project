@@ -3,6 +3,9 @@
 include "model.php";
 
 
+$ErrorLog = [];
+
+
 switch($_SERVER["REQUEST_METHOD"]){
     case "GET":
         $components = getURIComponents();
