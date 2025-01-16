@@ -68,13 +68,13 @@
                     <!-- Middle Menu Bar -->
                     
                     <!-- PROFILE HEADER IMAGE -->
-                    <div id="profileheaderbox">
+                    <div class="profileheaderbox">
                         <!-- REMOVE IF IT CAUSES ISSUES, THOUGHT IT WOULD BE FUNEE -->
                         <img src="..\..\assets\images\water.jpg" alt="the user's header picture" id="profileheader">
                     </div>
 
                     <!-- USER INFO -->
-                    <div id="userheader">
+                    <div class="userheader">
 
                         <div class="picturebuttonsbox">
                             <!-- PROFILE PIC -->
@@ -84,7 +84,7 @@
                             
                             <!-- Button trigger edit profile modal -->
                             <div id="editProfileButtonBox">
-                                <button type="button" class="btn btn-primary" id="editProfileButton" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
+                                <button type="button" class="btn btn-primary btn-sm" id="editProfileButton" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
                             </div>
                         </div>
 
@@ -168,15 +168,45 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit My Profile</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <!-- PROFILE HEADER IMAGE -->
+                    <div class="profileheaderbox">
+                        <!-- REMOVE IF IT CAUSES ISSUES, THOUGHT IT WOULD BE FUNEE -->
+                        <img src="..\..\assets\images\water.jpg" alt="the user's header picture" id="profileheader">
+                    </div>
+
+                    <!-- USER INFO -->
+                    <div class="userheader">
+
+                        <div class="picturebuttonsbox">
+                            <!-- PROFILE PIC -->
+                            <div class="profilepicturebox">
+                                <img src="..\..\assets\images\BlueStacks_Logo2.png" alt="The Logo for 5Stack" class="profilepicture">        
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="editprofileform">
+                        <form action="/action_page.php">
+                            <label for="displayname" class="editprofileLabels">Display Name</label><br>
+                            <input type="text" id="displayname" class="form-control" name="displayname" placeholder="John Smith">
+                            
+                            <label for="password" class="editprofileLabels">About You</label><br>
+                            <textarea id="userdescription" class="form-control" name="userdescription" rows="4" maxlength="300" placeholder="I like foxes..."></textarea>
+                            
+                            <!-- <input type="submit" id="loginbutton" value="Login!" class="btn btn-lg"> -->
+                            <button type="submit" class="btn btn-primary" id="saveprofilebutton">Save changes</button>
+                            
+                        </form>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeprofilebutton">Close</button>
                 </div>
             </div>
             </div>
