@@ -254,13 +254,13 @@ h2 {
     margin-left: 50px;
 }
 
-#editProfileButton {
+#editProfileButton, #followButton {
     background-color: #67506d;
     border-color: #67506d;
     border-radius: 25px;
 }
 
-#editProfileButton:hover {
+#editProfileButton:hover, #followButton:hover {
     background-color: #7f6885;
     border-color: #7f6885;
 }
