@@ -278,7 +278,7 @@ function Register($username, $email, $password){
     // Insert new user using Create function
     $success = Create('users', 'username,email,password', [$username, $email, $hashedPassword]);
 
-    return $success ? ["success" => "User registered successfully"] : ["error" => "Registration failed"];
+    return $success["status"] ? ["success" => "User registered successfully"] : ["error" => "Registration failed"];
 }
 
 /**
@@ -304,7 +304,7 @@ function Unregister($username, $email){
         //delete the user from the db
         $deleted = Deletes('users', 'username, email', [$username, $email]); 
 
-        if($deleted){
+        if($deleted["status"]){
             return ["success" => "User has been unregistered successfully"];
         }else{
             return ["error" => "Error occured. Failed to unregister!"];
