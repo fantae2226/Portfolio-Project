@@ -16,8 +16,8 @@ function run() {
     // unregister/delete user 
 
     //login
-    var loginUserButton = document.getElementById('loginbutton');
-    loginUserButton.addEventListener('click', loginUser);
+    // var loginUserButton = document.getElementById('loginbutton');
+    // loginUserButton.addEventListener('click', loginUser);
 
     //logout
     
@@ -39,7 +39,7 @@ function run() {
 
 // registerUser returns true on a success and false on a failure
 
-function registerUser() {
+async function registerUser() {
     var registeredUsername = document.getElementById('registeredusername').value;
     var registeredPassword1 = document.getElementById('registeredpassword1').value;
     var registeredPassword2 = document.getElementById('registeredpassword2').value;
@@ -56,9 +56,15 @@ function registerUser() {
         "action" : "register"
     };
     
-    database.Create(paramName, registeredParamContents);
+
+    try{
+
+        await database.Create(paramName, registeredParamContents);
+    } catch(error){
+        console.error("Error registering user: ", error);
+    }
     
-    // console.log("create happened idk if it worked");
+    console.log("create happened idk if it worked");
     
 
     // add error handling and other things like password comparison etc.

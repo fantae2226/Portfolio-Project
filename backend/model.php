@@ -276,7 +276,7 @@ function Register($username, $email, $password){
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     // Insert new user using Create function
-    $success = Create('users', 'username,email,password', [$username, $email, $hashedPassword]);
+    $success = Create('users', 'username, email, password', [$username, $email, $hashedPassword]);
 
     return $success["status"] ? ["success" => "User registered successfully"] : ["error" => "Registration failed"];
 }
