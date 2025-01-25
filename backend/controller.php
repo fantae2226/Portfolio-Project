@@ -17,10 +17,11 @@ switch($_SERVER["REQUEST_METHOD"]){
 
         if (count($components) > 1) {
 
+            echo print_r($components);
             $fields = "username";
             $params = [$components[1]];
         }
-
+        
         $response = Read($table, $column, $fields, $params);
 
         // Set the header to return JSON
@@ -38,6 +39,11 @@ switch($_SERVER["REQUEST_METHOD"]){
         $username = isset($input['username']) ? htmlspecialchars($input['username'], ENT_QUOTES, 'UTF-8') : null;
         $password = isset($input['password']) ? htmlspecialchars($input['password'], ENT_QUOTES, 'UTF-8') : null;
         $email = isset($input['email']) ? htmlspecialchars($input['email'], ENT_QUOTES, 'UTF-8') : null;
+        // $action = isset($input['action']) ? $action : null;
+        // $action = isset($input['action']) ? htmlspecialchars($input['action'], ENT_QUOTES, 'UTF-8') : null;
+        $action = $input['action'];
+        // echo $action;
+
 
         $fields = implode(",",array_keys($input));
         // $fields = "`username`, `password`, `role`";
@@ -50,17 +56,25 @@ switch($_SERVER["REQUEST_METHOD"]){
         $table = null;
         
         //this doesn't make sense, why would i check this when the components will always be set
-        if(count($components) == 1){
-            $table = $components[0];
-        }
+        // if(count($components) == 1){
+        //     $table = $components[0];
+        // }
         
-        $response = Create($table, $fields, $params);
-
+        // if ($action === "register") {
+        //     echo "success";
+        //     Register($username, $email, $password);
+        // }
+        // else {
+        //     echo "failure";
+        //     // $response = Create($table, $fields, $params);
+        // }
+        
+        
         // Set the header to return JSON
         header('Content-Type: application/json');
 
         // Output the response as JSON
-        echo json_encode($response);
+        echo json_encode($action);
 
         break;
     case "PUT":

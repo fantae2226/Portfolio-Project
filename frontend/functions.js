@@ -16,7 +16,9 @@ function run() {
     // unregister/delete user 
 
     //login
-    
+    var loginUserButton = document.getElementById('loginbutton');
+    loginUserButton.addEventListener('click', loginUser);
+
     //logout
     
     //follow user
@@ -42,28 +44,30 @@ function registerUser() {
     var registeredPassword1 = document.getElementById('registeredpassword1').value;
     var registeredPassword2 = document.getElementById('registeredpassword2').value;
     var registeredEmail = document.getElementById('registeredemail').value;
-    
-    console.log("da registration button was clicked")
+    // var action = "register";
+
+    // console.log("da registration button was clicked");
 
     var paramName = "users";
     var registeredParamContents = {
         "username" : registeredUsername,
         "password" : registeredPassword1,
-        "email": registeredEmail
+        "email": registeredEmail,
+        "action" : "register"
     };
     
     database.Create(paramName, registeredParamContents);
     
-    console.log("create happened idk if it worked");
+    // console.log("create happened idk if it worked");
     
-
-
-
-
 
     // add error handling and other things like password comparison etc.
     // for now... assume user is a good boy or girl. They are nice on santa's list. 
     //      - Mastiffhere O' Soccerguy
+}
+
+function loginUser() {
+    
 }
 
 

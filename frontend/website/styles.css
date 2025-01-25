@@ -89,13 +89,13 @@ h2 {
     padding-top: 10px;
 }
 
-/* #username, #username-r, #password, #password1 #password2, #email {
+/* #loginusername, #username-r, #loginpassword, #password1 #password2, #email {
     width: 75%;
 } */
 
-#username, #password {
+/* #loginusername, #loginpassword {
     width: 75%;
-}
+} */
 
 #loginbutton, #registerbutton {
     width: 100%;
