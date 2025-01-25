@@ -68,8 +68,9 @@ switch($_SERVER["REQUEST_METHOD"]){
         
         $response;
         if ($action === "register") {
-            $response = ["success"];
-            Register($username, $email, $password);
+            
+            
+            $response = Register($username, $email, $password);
         }
         else {
             $response = ["failure"];
