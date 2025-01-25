@@ -80,22 +80,22 @@
                         <span class = "registerationform">
                             <form id="registrationFormInternal">
                                 <label for="registeredusername" class="registerLabels">Username</label>
-                                <input type="text" id="registeredusername" class="form-control" name="registeredusername" aria-describedby="usernameRegistrationBlock">
+                                <input type="text" id="registeredusername" class="form-control" name="registeredusername" aria-describedby="usernameRegistrationBlock" required>
                                 <div class="form-text">
                                     Your username must not contain spaces and must be between 1 to 16 characters. 
                                 </div>
                                 
                                 <label for="registeredemail" class="registerLabels">Email</label><br>
-                                <input type="email" id="registeredemail" class="form-control" name="registeredemail" aria-describedby="emailRegistrationBlock">
+                                <input type="email" id="registeredemail" class="form-control" name="registeredemail" aria-describedby="emailRegistrationBlock" required>
                                 
                                 <label for="registeredpassword1" class="registerLabels">Password</label><br>
-                                <input type="password" id="registeredpassword1" class="form-control" name="registeredpassword1" aria-describedby="firstPasswordRegistrationBlock">
+                                <input type="password" id="registeredpassword1" class="form-control" name="registeredpassword1" aria-describedby="firstPasswordRegistrationBlock" required>
                                 <div class="form-text">
                                     Your password must be at least 8 characters and contain at least 1 number and special character. 
                                 </div>
 
                                 <label for="registeredpassword2" class="registerLabels"> Re-enter password:</label><br>
-                                <input type="password" id="registeredpassword2" class="form-control" name="registeredpassword2" aria-describedby="secondPassword2RegistrationBlock">
+                                <input type="password" id="registeredpassword2" class="form-control" name="registeredpassword2" aria-describedby="secondPassword2RegistrationBlock" required>
                                 <label></label>
 
                                 <input type="button" id="registrationbutton" value="Register!" class="btn btn-md">

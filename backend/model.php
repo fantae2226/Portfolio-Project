@@ -268,9 +268,10 @@ function Register($username, $email, $password){
 
     $existingUser = Read('users', '*', 'username, email', [$username, $email]);
     
-    if (is_array($existingUser) && count($existingUser) > 0) {
-        return ["error" => "Username or email already exists"];
-    }
+    // This if statement is supposed to check if username or email exists in db already, it does not work correctly atm 
+    // if (is_array($existingUser) && count($existingUser[0]) > 0) {
+    //     return ["error" => "Username or email already exists"];
+    // }
 
     // Hash the password
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);

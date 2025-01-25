@@ -58,13 +58,12 @@ async function registerUser() {
     
 
     try{
-
         await database.Create(paramName, registeredParamContents);
     } catch(error){
         console.error("Error registering user: ", error);
     }
     
-    console.log("create happened idk if it worked");
+    // console.log("create happened idk if it worked");
     
 
     // add error handling and other things like password comparison etc.
